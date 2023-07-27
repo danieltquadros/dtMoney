@@ -23,6 +23,22 @@
       "category": "Education",
       "price": 1980,
       "createdAt": "2023-07-19T17:13:08.974Z"
+    },
+    {
+      "description": "App development",
+      "price": 10000,
+      "category": "Sale",
+      "type": "income",
+      "createdAt": "2023-07-19T20:59:20.662Z",
+      "id": 4
+    },
+    {
+      "description": "Pizza",
+      "price": 49,
+      "category": "Food",
+      "type": "income",
+      "createdAt": "2023-07-19T21:32:46.609Z",
+      "id": 5
     }
   ]
 }

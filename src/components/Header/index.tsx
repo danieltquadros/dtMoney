@@ -1,17 +1,25 @@
 import * as Dialog from '@radix-ui/react-dialog'
+import { CurrencyCircleDollar } from 'phosphor-react'
 
 // Styles
-import { HeaderContainer, HeaderContent, NewTransactionButton } from './styles'
+import {
+  HeaderContainer,
+  HeaderContent,
+  NewTransactionButton,
+  IconAndTitleArea,
+} from './styles'
 
-// Assets
-import logoImg from '../../assets/logo.svg'
+// Global components
 import NewTransaction from '../modals/NewTransaction'
 
 const Header = () => {
   return (
     <HeaderContainer>
       <HeaderContent>
-        <img src={logoImg} alt="" />
+        <IconAndTitleArea>
+          <CurrencyCircleDollar size={50} weight="bold" />
+          <span>DT Money</span>
+        </IconAndTitleArea>
         <Dialog.Root>
           <Dialog.Trigger asChild>
             <NewTransactionButton>New transaction</NewTransactionButton>
