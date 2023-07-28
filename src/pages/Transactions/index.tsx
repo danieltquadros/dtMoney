@@ -1,5 +1,9 @@
 import { useContextSelector } from 'use-context-selector'
 
+// MUI
+import { useTheme } from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
+
 // Global components
 import Header from '../../components/Header'
 import Summary from '../../components/Summary'
@@ -20,6 +24,10 @@ const Transactions = () => {
   const transactions = useContextSelector(TransactionsContext, (context) => {
     return context.transactions
   })
+  const theme = useTheme()
+  const xs = useMediaQuery(theme.breakpoints.only('xs'))
+
+  console.log(xs)
 
   return (
     <div>
@@ -30,21 +38,41 @@ const Transactions = () => {
         <TransactionsTable>
           <tbody>
             {transactions.map((transaction) => {
-              return (
-                <tr key={transaction.id}>
-                  <td width="50%">{transaction.description}</td>
-                  <td>
-                    <PriceHighlight variant={transaction.type}>
-                      {transaction.type === 'outcome' && '- '}
-                      {priceFormatter.format(transaction.price)}
-                    </PriceHighlight>
-                  </td>
-                  <td>{transaction.category}</td>
-                  <td>
-                    {dateFormatter.format(new Date(transaction.createdAt))}
-                  </td>
-                </tr>
-              )
+              if (!xs) {
+                return (
+                  <tr key={transaction.id}>
+                    <td width="50%">{transaction.description}</td>
+                    <td>
+                      <PriceHighlight variant={transaction.type}>
+                        {transaction.type === 'outcome' && '- '}
+                        {priceFormatter.format(transaction.price)}
+                      </PriceHighlight>
+                    </td>
+                    <td>{transaction.category}</td>
+                    <td>
+                      {dateFormatter.format(new Date(transaction.createdAt))}
+                    </td>
+                  </tr>
+                )
+              } else {
+                return (
+                  <tr key={transaction.id}>
+                    <td>
+                      <span>{transaction.description}</span>
+                      <PriceHighlight variant={transaction.type}>
+                        {transaction.type === 'outcome' && '- '}
+                        {priceFormatter.format(transaction.price)}
+                      </PriceHighlight>
+                    </td>
+                    <td>
+                      <span>{transaction.category}</span>
+                      <span>
+                        {dateFormatter.format(new Date(transaction.createdAt))}
+                      </span>
+                    </td>
+                  </tr>
+                )
+              }
             })}
           </tbody>
         </TransactionsTable>

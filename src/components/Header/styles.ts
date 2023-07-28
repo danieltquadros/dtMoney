@@ -14,6 +14,30 @@ export const HeaderContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 1224px) {
+    max-width: 900px;
+  }
+
+  @media (max-width: 964px) {
+    max-width: 768px;
+  }
+
+  @media (max-width: 800px) {
+    max-width: 736px;
+  }
+
+  @media (max-width: 748px) {
+    max-width: 672px;
+  }
+
+  @media (max-width: 688px) {
+    max-width: 588px;
+  }
+
+  @media (max-width: 600px) {
+    max-width: 360px;
+  }
 `
 
 export const IconAndTitleArea = styled.div`

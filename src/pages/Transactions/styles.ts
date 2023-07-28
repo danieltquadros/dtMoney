@@ -5,6 +5,30 @@ export const TransactionsContainer = styled.main`
   max-width: 1120px;
   margin: 4rem auto 4rem;
   padding: 0 1.5rem;
+
+  @media (max-width: 1224px) {
+    max-width: 900px;
+  }
+
+  @media (max-width: 964px) {
+    max-width: 768px;
+  }
+
+  @media (max-width: 800px) {
+    max-width: 736px;
+  }
+
+  @media (max-width: 748px) {
+    max-width: 672px;
+  }
+
+  @media (max-width: 688px) {
+    max-width: 588px;
+  }
+
+  @media (max-width: 600px) {
+    max-width: 360px;
+  }
 `
 
 export const TransactionsTable = styled.table`
@@ -16,6 +40,21 @@ export const TransactionsTable = styled.table`
   td {
     padding: 1.25rem 2rem;
     background: ${(props) => props.theme['gray-700']};
+
+    @media (max-width: 600px) {
+      display: flex;
+      justify-content: space-between;
+
+      &:first-child {
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 6px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 6px;
+      }
+    }
 
     &:first-child {
       border-top-left-radius: 6px;
