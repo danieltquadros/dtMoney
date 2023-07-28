@@ -27,8 +27,6 @@ const Transactions = () => {
   const theme = useTheme()
   const xs = useMediaQuery(theme.breakpoints.only('xs'))
 
-  console.log(xs)
-
   return (
     <div>
       <Header />
